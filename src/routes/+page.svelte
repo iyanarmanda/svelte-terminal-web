@@ -63,4 +63,10 @@ Mouse     : ENABLED
 	.link-label {
 		opacity: 0.7;
 	}
+
+	@media (max-width: 1024px) {
+		.link-label {
+			display: none;
+		}
+	}
 </style>
