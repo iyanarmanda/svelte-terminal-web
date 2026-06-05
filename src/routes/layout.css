@@ -1,3 +1,4 @@
+/* Layout Styles */
 :root {
   --color-terminal-bg: #000000;
   --color-terminal-green: #00FF00;
@@ -7,13 +8,43 @@ html, body {
   background-color: var(--color-terminal-bg);
   color: var(--color-terminal-green);
   font-family: 'ui-monospace', 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, monospace;
+  font-size: 16px;
+  font-weight: normal;
   margin: 0;
   padding: 5px;
   overflow: hidden;
-  cursor: none !important;
-  user-select: none;
 }
 
+/* Mouse Disable */
 * {
-  pointer-events: none !important;
+  /* cursor: none !important; */
+  user-select: none;
+  /* pointer-events: none !important; */
+}
+
+/* HTML elements */
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: bold;
+  margin: 0;
+}
+
+p, pre {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+a.active {
+  text-decoration: underline;
+}
+
+ul, ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
