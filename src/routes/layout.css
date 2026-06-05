@@ -1,1 +1,21 @@
 @import 'tailwindcss';
+
+:root {
+  --color-terminal-bg: #000000;
+  --color-terminal-green: #00FF00;
+}
+
+html, body {
+  background-color: var(--color-terminal-bg);
+  color: var(--color-terminal-green);
+  font-family: 'ui-monospace', 'Cascadia Code', 'Source Code Pro', Menlo, Monaco, Consolas, monospace;
+  margin: 0;
+  padding: 5px;
+  overflow: hidden;
+  cursor: none !important;
+  user-select: none;
+}
+
+* {
+  pointer-events: none !important;
+}
