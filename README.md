@@ -1,42 +1,116 @@
-# sv
+# Terminal Web
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A terminal-style web interface for navigating personal websites. Navigate links using arrow keys and enter, with a retro terminal aesthetic.
 
-## Creating a project
+## Tech Stack
 
-If you're seeing this, you've probably already done this step. Congrats!
+- [SvelteKit](https://svelte.dev/)
 
-```sh
-# create a new project
-npx sv create my-app
-```
+## Getting Started
 
-To recreate this project with the same configuration:
+### Installation
 
 ```sh
-# recreate this project
-pnpm dlx sv@0.15.1 create --template minimal --types ts --add playwright eslint prettier --install pnpm ./terminal-web
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm run dev
 ```
 
-## Developing
+The app will be available at `http://localhost:5173`
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Usage
+
+### Keyboard Controls
+
+- **↑/↓ Arrow Keys** - Navigate between links
+- **Enter** - Open the currently focused link
+- **Tab** - Prevented (reserved for arrow key navigation)
+
+### Available Commands
 
 ```sh
-npm run dev
+# Development
+pnpm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# Build for production
+pnpm run build
+
+# Preview production build
+pnpm run preview
+
+# Run E2E tests
+pnpm run test:e2e
+
+# Run linting
+pnpm run lint
+
+# Format code
+pnpm run format
+
+# Type check
+pnpm run check
 ```
 
-## Building
+## Project Structure
 
-To create a production version of your app:
+```
+src/
+├── routes/
+│   ├── +page.svelte          # Main home page
+│   ├── +layout.svelte        # Root layout
+│   ├── layout.css            # Global styles
+│   └── +error.svelte         # 404 error page
+├── lib/
+│   ├── assets/               # Static assets
+│   └── index.ts              # Library exports
+└── app.html                  # HTML shell
+
+tests/
+└── index.e2e.ts              # E2E tests
+```
+
+## Customization
+
+### Add More Links
+
+Edit `src/routes/+page.svelte` and add to the `links` array:
+
+```typescript
+const links = [
+  { id: 1, href: 'https://portfolio.izuli.my.id', label: 'Personal Portfolio' },
+  { id: 2, href: 'https://blog.izuli.my.id', label: 'Tech Blog & Articles' },
+  // Add more links here
+];
+```
+
+### Change Colors
+
+Edit `src/routes/layout.css` and update CSS custom properties:
+
+```css
+:root {
+  --color-terminal-bg: #000000;      /* Background color */
+  --color-terminal-green: #00FF00;   /* Text color */
+}
+```
+
+## Testing
+
+Tests are located in the `tests/` folder and run with Playwright:
 
 ```sh
-npm run build
+pnpm run test:e2e
 ```
 
-You can preview the production build with `npm run preview`.
+Current tests cover:
+- Page loads with welcome message
+- All links are displayed
+- Arrow key navigation works
+- Link labels display when active
+- Tab key prevention
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## License
+
+[MIT Licensed](https://github.com/iyanarmanda/svelte-terminal-web/blob/main/LICENSE.txt)
