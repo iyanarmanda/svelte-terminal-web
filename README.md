@@ -15,7 +15,7 @@ To recreate this project with the same configuration:
 
 ```sh
 # recreate this project
-pnpm dlx sv@0.15.1 create --template minimal --types ts --add playwright tailwindcss="plugins:none" eslint prettier --install pnpm ./terminal-web
+pnpm dlx sv@0.15.1 create --template minimal --types ts --add playwright eslint prettier --install pnpm ./terminal-web
 ```
 
 ## Developing
