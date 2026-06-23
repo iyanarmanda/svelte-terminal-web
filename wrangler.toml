@@ -1,2 +1,5 @@
 name = "svelte-terminal-web"
 pages_build_output_dir = "./build"
+
+[assets]
+directory = "./build"
