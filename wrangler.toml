@@ -1,5 +1,6 @@
 name = "svelte-terminal-web"
 pages_build_output_dir = "./build"
+compatibility_date = "2026-06-23"
 
 [assets]
 directory = "./build"
